@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { ProductCard, ProductCardProps } from '@/components/ProductCard'
-import { sampleProducts, topics } from "@/data/mock";
+import {homeFilter, sampleProducts} from "@/data/mock";
 
 export default function Home() {
   const [products, setProducts] = useState<ProductCardProps[]>(sampleProducts)
@@ -71,7 +71,7 @@ export default function Home() {
 
               {/* Topic Filter */}
               <div className="flex flex-wrap gap-2">
-                {topics.map((topic) => (
+                {homeFilter.map((topic) => (
                     <button
                         key={topic}
                         onClick={() => setSelectedTopic(topic)}

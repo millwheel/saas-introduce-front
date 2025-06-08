@@ -72,4 +72,5 @@ export const sampleProducts: ProductCardProps[] = [
     }
 ]
 
-export const topics = ['All', 'AI', 'Productivity', 'Design', 'Developer Tools', 'Project Management', 'Creative Tools']
+export const topics = ['AI', 'Productivity', 'Design', 'Developer Tools', 'Project Management', 'Creative Tools']
+export const homeFilter = ['ALL', ...topics]
