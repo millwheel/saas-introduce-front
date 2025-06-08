@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -39,18 +40,15 @@ export default function RootLayout({
 
                         {/* Navigation */}
                         <nav className="hidden md:flex items-center space-x-6">
-                            {/* Topics Dropdown */}
-                            <div className="relative group">
-                                <button className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-                                    Topics
-                                    <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                            </div>
+                            {/* Home Link */}
+                            <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
+                                Home
+                            </Link>
 
-                            {/* Top Products */}
-                            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Top Products</a>
+                            {/* Topics Link */}
+                            <Link href="/topics" className="text-gray-600 hover:text-gray-900 transition-colors">
+                                Topics
+                            </Link>
 
                             {/* User Menu Dropdown */}
                             <div className="relative group">
