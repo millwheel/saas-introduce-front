@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ProductCard, ProductCardProps, ReactionType } from '@/components/ProductCard'
+import { ProductCard, ProductCardProps } from '@/components/ProductCard'
 import {sampleProducts, topics} from "@/data/mock";
 
 
@@ -15,41 +15,6 @@ export default function Home() {
       ? products
       : products.filter(product => product.topics.includes(selectedTopic))
 
-  // 반응 처리 함수들
-  const handleLike = (slug: string) => {
-    setProducts(prev => prev.map(product => {
-      if (product.slug === slug) {
-        const wasLiked = product.userReaction === 'LIKE'
-        const wasDisliked = product.userReaction === 'DISLIKE'
-
-        return {
-          ...product,
-          userReaction: wasLiked ? undefined : 'LIKE' as ReactionType,
-          likeCount: wasLiked ? product.likeCount - 1 : product.likeCount + 1,
-          dislikeCount: wasDisliked ? product.dislikeCount - 1 : product.dislikeCount
-        }
-      }
-      return product
-    }))
-  }
-
-  const handleDislike = (slug: string) => {
-    setProducts(prev => prev.map(product => {
-      if (product.slug === slug) {
-        const wasLiked = product.userReaction === 'LIKE'
-        const wasDisliked = product.userReaction === 'DISLIKE'
-
-        return {
-          ...product,
-          userReaction: wasDisliked ? undefined : 'DISLIKE' as ReactionType,
-          dislikeCount: wasDisliked ? product.dislikeCount - 1 : product.dislikeCount + 1,
-          likeCount: wasLiked ? product.likeCount - 1 : product.likeCount
-        }
-      }
-      return product
-    }))
-  }
-
   return (
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
@@ -58,8 +23,7 @@ export default function Home() {
             <div className="flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center space-x-2">
-                <h1 className="text-2xl font-bold text-gray-900">ProductHunt</h1>
-                <span className="text-sm text-gray-500">Discover amazing SaaS products</span>
+                <h1 className="text-2xl font-bold text-gray-900">IntroduceSaaS</h1>
               </div>
 
               {/* Navigation */}
@@ -138,10 +102,10 @@ export default function Home() {
         <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
           <div className="max-w-6xl mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Discover the Best SaaS Products
+              최고의 SaaS 제품을 만나보세요
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Find and explore cutting-edge SaaS tools that can transform your workflow and boost productivity
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              워크플로우를 혁신하고 생산성을 향상시킬 수 있는 최첨단 SaaS 도구를 찾고 탐색하세요
             </p>
 
             {/* Search Bar */}
@@ -223,8 +187,6 @@ export default function Home() {
                 <ProductCard
                     key={product.slug}
                     {...product}
-                    onLike={() => handleLike(product.slug)}
-                    onDislike={() => handleDislike(product.slug)}
                 />
             ))}
           </div>

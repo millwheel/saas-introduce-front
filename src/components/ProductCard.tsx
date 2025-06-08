@@ -9,26 +9,14 @@ export type ProductCardProps = {
     slug: string
     name: string
     summary: string
-    websiteUrl: string
-    viewCount: number
-    likeCount: number
-    dislikeCount: number
     topics: string[]
-    userReaction?: ReactionType
-    onLike?: () => void
-    onDislike?: () => void
 }
 
 export function ProductCard({
                                 slug,
                                 name,
                                 summary,
-                                websiteUrl,
-                                viewCount,
-                                likeCount,
-                                dislikeCount,
                                 topics,
-                                userReaction,
                             }: ProductCardProps) {
     const [hovered, setHovered] = useState(false)
 
