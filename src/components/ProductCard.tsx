@@ -29,8 +29,6 @@ export function ProductCard({
                                 dislikeCount,
                                 topics,
                                 userReaction,
-                                onLike,
-                                onDislike,
                             }: ProductCardProps) {
     const [hovered, setHovered] = useState(false)
 
@@ -56,36 +54,6 @@ export function ProductCard({
                 ))}
             </div>
 
-            <div className="flex items-center justify-between text-sm text-gray-600">
-                <div className="flex gap-3 items-center">
-                    <button
-                        className={`hover:text-blue-600 ${
-                            userReaction === 'LIKE' ? 'text-blue-600 font-bold' : ''
-                        }`}
-                        onClick={onLike}
-                    >
-                        👍 {likeCount}
-                    </button>
-                    <button
-                        className={`hover:text-red-600 ${
-                            userReaction === 'DISLIKE' ? 'text-red-600 font-bold' : ''
-                        }`}
-                        onClick={onDislike}
-                    >
-                        👎 {dislikeCount}
-                    </button>
-                    <span>👁 {viewCount}</span>
-                </div>
-
-                <a
-                    href={websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 underline"
-                >
-                    방문하기
-                </a>
-            </div>
         </div>
     )
 }
