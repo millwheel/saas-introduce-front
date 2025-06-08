@@ -1,18 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import { ProductCard, ProductCardProps } from '@/components/ProductCard'
-import {homeFilter, sampleProducts} from "@/data/mock";
+import { ProductCard } from '@/components/ProductCard'
+import {homeFilter, homeProducts} from "@/data/mock";
 
 export default function Home() {
-  const [products, setProducts] = useState<ProductCardProps[]>(sampleProducts)
   const [selectedTopic, setSelectedTopic] = useState('All')
   const [timeFilter, setTimeFilter] = useState<'7days' | '30days'>('7days')
 
   // 토픽 필터링
   const filteredProducts = selectedTopic === 'All'
-      ? products
-      : products.filter(product => product.topics.includes(selectedTopic))
+      ? homeProducts
+      : homeProducts.filter(product => product.tags.includes(selectedTopic))
 
   return (
       <>

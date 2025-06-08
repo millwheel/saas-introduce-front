@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {topics} from "@/data/mock";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -48,17 +47,6 @@ export default function RootLayout({
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
                                 </button>
-
-                                {/* Dropdown Menu */}
-                                <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                    {topics.map((topic) => (
-                                        <button
-                                            key={topic}
-                                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                            {topic}
-                                        </button>
-                                    ))}
-                                </div>
                             </div>
 
                             {/* Top Products */}
