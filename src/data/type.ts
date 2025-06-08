@@ -1,6 +1,6 @@
 
 
-export type TopicCard = {
+export type TopicCardType = {
     id: string
     name: string
     emoji: string
@@ -9,7 +9,7 @@ export type TopicCard = {
     trending?: boolean
 }
 
-export type ProductCard = {
+export type ProductCardType = {
     name: string
     slug: string
     summary: string

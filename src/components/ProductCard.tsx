@@ -1,23 +1,14 @@
 'use client'
 
 import Link from 'next/link'
-import {ProductCard} from "@/data/type";
-
-export type ReactionType = 'LIKE' | 'DISLIKE'
-
-export type ProductCardProps = {
-    slug: string
-    name: string
-    summary: string
-    topics: string[]
-}
+import {ProductCardType} from "@/data/type";
 
 export function ProductCard({
                                 slug,
                                 name,
                                 summary,
                                 tags,
-                            }: ProductCard) {
+                            }: ProductCardType) {
 
     return (
         <div>

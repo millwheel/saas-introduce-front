@@ -1,16 +1,8 @@
-
-
-// 샘플 데이터
-import {ProductCardProps} from "@/components/ProductCard";
-import {ProductCard, TopicCard} from "@/data/type";
-
-export const sampleProducts: ProductCardProps[] = [
-
-]
+import {ProductCardType, TopicCardType} from "@/data/type";
 
 export const homeFilter = ['ALL', 'AI', 'Productivity', 'Design', 'Developer Tools', 'Project Management', 'Creative Tools']
 
-export const homeProducts: ProductCard[] = [
+export const homeProducts: ProductCardType[] = [
     {
         slug: 'notion-ai',
         name: 'Notion AI',
@@ -49,7 +41,7 @@ export const homeProducts: ProductCard[] = [
     }
 ]
 
-export const trendingTopics: TopicCard[] = [
+export const trendingTopics: TopicCardType[] = [
     { id: 'saas', name: 'SaaS', emoji: '💻', description: 'Software as a Service solutions', productCount: 2847, trending: true },
     { id: 'ai-tools', name: 'AI Tools', emoji: '🤖', description: 'Artificial Intelligence powered tools', productCount: 1923, trending: true },
     { id: 'developer-tools', name: 'Developer Tools', emoji: '🔧', description: 'Tools for developers and engineers', productCount: 1456, trending: true },
@@ -60,7 +52,7 @@ export const trendingTopics: TopicCard[] = [
     { id: 'marketing', name: 'Marketing', emoji: '📈', description: 'Marketing and growth tools', productCount: 621, trending: true },
 ]
 
-export const allTopics: TopicCard[] = [
+export const allTopics: TopicCardType[] = [
     { id: '3d', name: '3D', emoji: '🎥', description: '3D design and modeling tools', productCount: 89 },
     { id: 'accounting', name: 'Accounting', emoji: '💰', description: 'Financial accounting solutions', productCount: 156 },
     { id: 'advertising', name: 'Advertising', emoji: '📢', description: 'Advertising platforms and tools', productCount: 234 },
