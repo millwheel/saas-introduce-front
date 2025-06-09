@@ -34,9 +34,14 @@ export default function RootLayout({
                 <div className="max-w-6xl mx-auto px-4 py-4">
                     <div className="flex items-center justify-between">
                         {/* Logo */}
-                        <div className="flex items-center space-x-2">
-                            <h1 className="text-2xl font-bold text-gray-900">IntroduceSaaS</h1>
-                        </div>
+                        <Link href="/" className="flex items-center space-x-3 group cursor-pointer">
+                            {/* Logo Icon */}
+                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md transition-all duration-200">
+                                <div className="w-5 h-5 bg-white rounded opacity-90 group-hover:opacity-100 transition-opacity duration-200" />
+                            </div>
+                            {/* Logo Text */}
+                            <h1 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">IntroduceSaaS</h1>
+                        </Link>
 
                         {/* Navigation */}
                         <nav className="hidden md:flex items-center space-x-6">
