@@ -44,7 +44,7 @@ export default function RootLayout({
                         </Link>
 
                         {/* Navigation */}
-                        <nav className="hidden md:flex items-center space-x-6">
+                        <nav className="hidden md:flex items-center space-x-8">
                             {/* Home Link */}
                             <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
                                 Home
@@ -55,36 +55,16 @@ export default function RootLayout({
                                 Topics
                             </Link>
 
-                            {/* User Menu Dropdown */}
-                            <div className="relative group">
-                                <button className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-                                    내 활동
-                                    <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
+                            {/* Products Link */}
+                            <Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">
+                                Products
+                            </Link>
 
-                                {/* User Dropdown Menu */}
-                                <div className="absolute top-full right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                    <div className="py-2">
-                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                            내 반응
-                                        </a>
-                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                            회원 정보
-                                        </a>
-                                        <hr className="my-1 border-gray-200" />
-                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                            로그아웃
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            {/* Article Link */}
+                            <Link href="/articles" className="text-gray-600 hover:text-gray-900 transition-colors">
+                                Articles
+                            </Link>
 
-                            {/* Submit Product Button */}
-                            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                Submit Product
-                            </button>
                         </nav>
 
                         {/* Mobile Menu Button */}
