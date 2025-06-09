@@ -134,7 +134,7 @@ export default function RootLayout({
                             <ul className="space-y-2 text-sm text-gray-600">
                                 <li><a href="#" className="hover:text-gray-900 transition-colors">소개</a></li>
                                 <li><a href="#" className="hover:text-gray-900 transition-colors">문의</a></li>
-                                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors flex items-center">
+                                <li><a href="https://github.com/millwheel" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors flex items-center">
                                     GitHub
                                     <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
