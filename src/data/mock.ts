@@ -52,7 +52,7 @@ export const trendingTopics: TopicCardType[] = [
     { id: 'marketing', name: 'Marketing', emoji: '📈', description: 'Marketing and growth tools', productCount: 621, trending: true },
 ]
 
-export const allTopics: TopicCardType[] = [
+export const topics: TopicCardType[] = [
     { id: '3d', name: '3D', emoji: '🎥', description: '3D design and modeling tools', productCount: 89 },
     { id: 'accounting', name: 'Accounting', emoji: '💰', description: 'Financial accounting solutions', productCount: 156 },
     { id: 'advertising', name: 'Advertising', emoji: '📢', description: 'Advertising platforms and tools', productCount: 234 },
