@@ -15,3 +15,11 @@ export type ProductCardType = {
     summary: string
     tags: string[]
 }
+
+export type TopicType = {
+    id: number
+    slug: string
+    name: string
+    emoji: string
+    productCount: number
+}

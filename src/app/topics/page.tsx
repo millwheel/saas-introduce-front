@@ -1,7 +1,27 @@
+'use client'
+
+import axios from 'axios';
 import Link from 'next/link'
-import {topics} from "@/data/mock";
+import {useEffect, useState} from "react";
+import {TopicType} from "@/data/type";
 
 export default function TopicsPage() {
+    const [topics, setTopics] = useState<TopicType[]>([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/topics')
+            .then((res) => {
+                console.log('data', res.data)
+                setTopics(res.data)
+            })
+            .catch((err) => {
+                console.error('Failed to fetch topics', err)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }, [])
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -12,7 +32,7 @@ export default function TopicsPage() {
                         Browse Topics
                     </h1>
                     <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                        Browse saas across {topics.length} topics
+                        {loading ? 'Loading topics...' : `Browse saas across ${topics.length} topics`}
                     </p>
                 </div>
             </section>
@@ -26,34 +46,27 @@ export default function TopicsPage() {
                             {topics.length} topics found
                         </span>
                     </div>
-
-                    {topics.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                            {topics.map((topic) => (
-                                <Link key={topic.id} href={`/topics/${topic.id}`}>
-                                    <div className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-md hover:border-blue-200 transition-all duration-200 cursor-pointer group">
-                                        <div className="flex items-center space-x-3">
-                                            <div className="text-2xl group-hover:scale-110 transition-transform">
-                                                {topic.emoji}
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <h3 className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors truncate">
-                                                    {topic.name}
-                                                </h3>
-                                                <p className="text-xs text-gray-500">
-                                                    {topic.productCount.toLocaleString()} products
-                                                </p>
-                                            </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        {topics.map((topic) => (
+                            <Link key={topic.id} href={`/topics/${topic.id}`}>
+                                <div className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-md hover:border-blue-200 transition-all duration-200 cursor-pointer group">
+                                    <div className="flex items-center space-x-3">
+                                        <div className="text-2xl group-hover:scale-110 transition-transform">
+                                            {topic.emoji}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors truncate">
+                                                {topic.name}
+                                            </h3>
+                                            <p className="text-xs text-gray-500">
+                                                {topic.productCount.toLocaleString()} products
+                                            </p>
                                         </div>
                                     </div>
-                                </Link>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="text-center py-8">
-                            <p className="text-gray-500">No topics found matching your search</p>
-                        </div>
-                    )}
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </section>
             </div>
         </div>
