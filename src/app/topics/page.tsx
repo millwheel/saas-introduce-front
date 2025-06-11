@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import {TopicType} from "@/data/type";
+import {TopicSummaryResponse} from "@/data/type";
 
-async function getTopics(): Promise<TopicType[]> {
+async function getTopics(): Promise<TopicSummaryResponse[]> {
     try {
         const res = await fetch('http://localhost:8080/topics', {
             next: { revalidate: 60 }
