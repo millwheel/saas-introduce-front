@@ -1,27 +1,26 @@
-'use client'
-
-import axios from 'axios';
 import Link from 'next/link'
-import {useEffect, useState} from "react";
 import {TopicType} from "@/data/type";
 
-export default function TopicsPage() {
-    const [topics, setTopics] = useState<TopicType[]>([])
-    const [loading, setLoading] = useState(true)
+async function getTopics(): Promise<TopicType[]> {
+    try {
+        const res = await fetch('http://localhost:8080/topics', {
+            next: { revalidate: 60 }
+        })
 
-    useEffect(() => {
-        axios.get('http://localhost:8080/topics')
-            .then((res) => {
-                console.log('data', res.data)
-                setTopics(res.data)
-            })
-            .catch((err) => {
-                console.error('Failed to fetch topics', err)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-    }, [])
+        if (!res.ok) {
+            console.error(`Failed to fetch topics: ${res.status} ${res.statusText}`)
+            return []
+        }
+
+        return res.json()
+    } catch (error) {
+        console.error('Error fetching topics:', error)
+        return []
+    }
+}
+
+export default async function TopicsPage() {
+    const topics = await getTopics()
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -32,7 +31,7 @@ export default function TopicsPage() {
                         Browse Topics
                     </h1>
                     <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                        {loading ? 'Loading topics...' : `Browse saas across ${topics.length} topics`}
+                        Browse saas across {topics.length} topics
                     </p>
                 </div>
             </section>
