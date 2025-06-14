@@ -68,15 +68,6 @@ export default async function TopicDetailPage({params}: {
             {/* Hero Section */}
             <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
                 <div className="max-w-6xl mx-auto px-4">
-                    {/* Breadcrumb */}
-                    <nav className="text-sm text-gray-600 mb-6">
-                        <Link href="/topics" className="hover:text-blue-600">
-                            Topics
-                        </Link>
-                        <span className="mx-2">→</span>
-                        <span className="text-gray-900">{topic.name}</span>
-                    </nav>
-
                     <div className="text-center">
                         <div className="text-6xl mb-4">{topic.emoji}</div>
                         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
