@@ -20,3 +20,16 @@ export type TopicProductResponse = {
     slug: string
     summary: string
 }
+
+export type ProductResponse = {
+    id: number
+    code: string
+    name: string
+    summary: string
+    description: string
+    websiteUrl: string
+    createdAt: string
+    updatedAt: string
+    totalViews: number
+}
+
