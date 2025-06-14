@@ -1,17 +1,4 @@
-'use client'
-
-import { useState } from 'react'
-import { ProductCard } from '@/components/ProductCard'
-import {homeFilter, homeProducts} from "@/data/mock";
-
 export default function Home() {
-  const [selectedTopic, setSelectedTopic] = useState('All')
-  const [timeFilter, setTimeFilter] = useState<'7days' | '30days'>('7days')
-
-  // 토픽 필터링
-  const filteredProducts = selectedTopic === 'All'
-      ? homeProducts
-      : homeProducts.filter(product => product.tags.includes(selectedTopic))
 
   return (
       <>
@@ -39,87 +26,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Filters */}
-        <section className="bg-white border-b border-gray-200">
-          <div className="max-w-6xl mx-auto px-4 py-4">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              {/* Time Filter */}
-              <div className="flex items-center space-x-2">
-                <span className="text-sm font-medium text-gray-700">Trending:</span>
-                <button
-                    onClick={() => setTimeFilter('7days')}
-                    className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                        timeFilter === '7days'
-                            ? 'bg-blue-100 text-blue-800 font-medium'
-                            : 'text-gray-600 hover:text-gray-900'
-                    }`}
-                >
-                  Last 7 days
-                </button>
-                <button
-                    onClick={() => setTimeFilter('30days')}
-                    className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                        timeFilter === '30days'
-                            ? 'bg-blue-100 text-blue-800 font-medium'
-                            : 'text-gray-600 hover:text-gray-900'
-                    }`}
-                >
-                  Last 30 days
-                </button>
-              </div>
-
-              {/* Topic Filter */}
-              <div className="flex flex-wrap gap-2">
-                {homeFilter.map((topic) => (
-                    <button
-                        key={topic}
-                        onClick={() => setSelectedTopic(topic)}
-                        className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                            selectedTopic === topic
-                                ? 'bg-blue-100 text-blue-800 font-medium'
-                                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                        }`}
-                    >
-                      {topic}
-                    </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Products Grid */}
-        <section className="max-w-6xl mx-auto px-4 py-8">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold text-gray-900">
-              {selectedTopic === 'All' ? 'All Products' : `${selectedTopic} Products`}
-            </h3>
-            <span className="text-sm text-gray-500">
-            {filteredProducts.length} products found
-          </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-                <ProductCard
-                    key={product.slug}
-                    {...product}
-                />
-            ))}
-          </div>
-
-          {filteredProducts.length === 0 && (
-              <div className="text-center py-12">
-                <div className="text-gray-400 mb-4">
-                  <svg className="w-16 h-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.467-.881-6.08-2.33" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
-                <p className="text-gray-500">Try adjusting your filters or search terms</p>
-              </div>
-          )}
-        </section>
       </>
   )
 }

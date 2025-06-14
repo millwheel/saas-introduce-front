@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import {TopicProductResponse, TopicResponse} from "@/data/type";
 
-async function getTopic(slug: string): Promise<TopicResponse | null> {
+async function getTopic(code: string): Promise<TopicResponse | null> {
     try {
-        const res = await fetch(`http://localhost:8080/topics/${slug}`, {
+        const res = await fetch(`http://localhost:8080/topics/${code}`, {
             next: { revalidate: 60 }
         })
 
@@ -34,12 +34,11 @@ function SimpleProductCard({ product }: { product: TopicProductResponse }) {
     )
 }
 
-export default async function TopicDetailPage({
-                                                  params
-                                              }: {
-    params: { slug: string }
+export default async function TopicDetailPage({params}: {
+    params: { code: string }
 }) {
-    const topic = await getTopic(params.slug)
+    const { code } = await params
+    const topic = await getTopic(code)
     
     if (!topic) {
         return (

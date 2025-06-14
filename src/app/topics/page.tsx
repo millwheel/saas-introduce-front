@@ -47,7 +47,7 @@ export default async function TopicsPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {topics.map((topic) => (
-                            <Link key={topic.id} href={`/topics/${topic.id}`}>
+                            <Link key={topic.code} href={`/topics/${topic.code}`}>
                                 <div className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-md hover:border-blue-200 transition-all duration-200 cursor-pointer group">
                                     <div className="flex items-center space-x-3">
                                         <div className="text-2xl group-hover:scale-110 transition-transform">
